@@ -33,5 +33,6 @@ spec:
           command: ["mysqladmin", "status", "-pmysqlrootpassword"]
   volumes:
     - name: mysql-vol
-      hostPath:
-        path: /var/lib/mysql
+      gcePersistentDisk:
+        pdName: mysql-disk
+        fsType: ext4

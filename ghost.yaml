@@ -33,5 +33,6 @@ spec:
           mountPath: /var/lib/ghost
   volumes:
     - name: ghost-vol
-      hostPath:
-        path: /var/lib/ghost
+      gcePersistentDisk:
+        pdName: ghost-disk
+        fsType: ext4
