@@ -7,19 +7,21 @@ metadata:
 spec:
   restartPolicy: Always
   containers: 
-    - image: "andreassolberg/ghost-kubernetes"
+    - image: "ghost:latest"
       name: "ghost"
       ports:
       - containerPort: 2368
       env:
       - name: GHOST_URL
         value: "http://blog.example.com"
+      - name: GHOST_CONTENT
+        value: "/var/lib/ghost"
       - name: PROD_FORCE_ADMIN_SSL
         value: "false"
       - name: GCLOUD_PROJECT
         value: learning-containers
       - name: GCLOUD_BUCKET
-        value: ghost-blog
+        value: tthomsen_ghost_blog2
       - name: MYSQL_HOST
         value: mysql
       - name: MYSQL_USER
